@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arnotts App</title>
+</head>
+<body>
+    <h1>Welcome to Arnotts</h1>
+    <div id="products"></div>
+
+    <script>
+        fetch('/api/products')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('products').innerHTML =
+                    data.map(p => `<p>${p.name} - €${p.price}</p>`).join('');
+            });
+    </script>
+</body>
+</html>
