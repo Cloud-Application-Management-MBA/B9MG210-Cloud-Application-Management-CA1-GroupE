@@ -6,7 +6,6 @@ This project demonstrates the migration of a web application (Arnotts) from a tr
 
 The aim is to improve scalability, reduce infrastructure management, and optimise cost efficiency.
 
----
 
 ## Project Objectives
 
@@ -16,13 +15,9 @@ The aim is to improve scalability, reduce infrastructure management, and optimis
 * Compare IaaS vs PaaS models
 * Demonstrate containerised deployment
 
----
-
 ## Proposed Architecture
 
 User → Azure Front Door → Azure CDN → Azure App Service (Docker Container) → Node.js Application → Azure Blob Storage → Azure Monitor
-
----
 
 ## Technologies Used
 
@@ -35,8 +30,6 @@ User → Azure Front Door → Azure CDN → Azure App Service (Docker Container)
 * Azure Monitor (Logging & Monitoring)
 * Azure CDN (Content Delivery - Optional)
 * Azure Front Door (Global Routing - Optional)
-
----
 
 ## Migration Strategy
 
@@ -55,8 +48,6 @@ We assume the existing system is hosted on IaaS (e.g., virtual machines on AWS).
 * Containerise application using Docker
 * Use managed services for storage and monitoring
 
----
-
 ## Benefits of Proposed Solution
 
 * Reduced infrastructure management
@@ -66,15 +57,12 @@ We assume the existing system is hosted on IaaS (e.g., virtual machines on AWS).
 * Built-in monitoring and logging
 * Better performance using CDN and Front Door
 
----
-
 ## Limitations
 
 * Less control compared to IaaS
 * Dependency on Azure platform
 * Initial learning curve
 
----
 
 ## Application Details
 
@@ -87,7 +75,6 @@ We assume the existing system is hosted on IaaS (e.g., virtual machines on AWS).
 
 * Basic HTML page
 
----
 
 ## Docker Deployment
 
@@ -103,8 +90,6 @@ docker build -t arnotts-app .
 docker run -p 3000:3000 arnotts-app
 ```
 
----
-
 ## ☁️ Azure Deployment
 
 The application is deployed using:
@@ -112,7 +97,6 @@ The application is deployed using:
 * Azure App Service (Container-based)
 * GitHub Container Registry (Image source)
 
----
 
 ##  Project Structure
 
@@ -127,7 +111,8 @@ arnotts-cloud-project/
 │
 └── public/
     └── index.html
----
+
+```
 
 ## Conclusion
 
