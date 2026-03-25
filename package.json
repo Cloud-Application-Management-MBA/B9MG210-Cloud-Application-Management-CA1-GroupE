@@ -1,6 +1,7 @@
 {
   "name": "arnotts-app",
   "version": "1.0.0",
+  "description": "Arnotts cloud project app",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
