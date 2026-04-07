@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates the migration of a web application (Arnotts) from a traditional model to a modern, containerised Platform-as-a-Service (PaaS) architecture using Microsoft Azure.
+This project demonstrates a modern retail website frontend hosted on Azure PaaS consuming data from a SaaS-like backend (simulated).
 
 The aim is to improve scalability, reduce infrastructure management, and optimise cost efficiency.
 
@@ -33,7 +33,7 @@ User → Azure Front Door → Azure CDN → Azure App Service (Docker Container)
 
 ## Migration Strategy
 
-We assume the existing system is hosted on IaaS (e.g., virtual machines on AWS).
+We assume the existing system is hosted using Demandware (SaaS).
 
 ### Current Challenges:
 
