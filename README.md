@@ -2,17 +2,17 @@
 
 ## Overview
 
-This project demonstrates the migration of a web application (Arnotts) from a traditional Infrastructure-as-a-Service (IaaS) model to a modern, containerised Platform-as-a-Service (PaaS) architecture using Microsoft Azure.
+This project demonstrates the migration of a web application (Arnotts) from a traditional model to a modern, containerised Platform-as-a-Service (PaaS) architecture using Microsoft Azure.
 
 The aim is to improve scalability, reduce infrastructure management, and optimise cost efficiency.
 
 
 ## Project Objectives
 
-* Analyse existing IaaS-based architecture
+* Analyse existing architecture
 * Design a cloud migration strategy
 * Implement a working cloud deployment
-* Compare IaaS vs PaaS models
+* Compare SaaS vs PaaS models
 * Demonstrate containerised deployment
 
 ## Proposed Architecture
