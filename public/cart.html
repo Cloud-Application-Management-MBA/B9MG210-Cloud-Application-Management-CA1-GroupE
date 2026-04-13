@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Your Cart</h1>
+
+<table class="cart-table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Brand</th>
+      <th>Price</th>
+      <th></th> <!-- EMPTY HEADER (no "Action") -->
+    </tr>
+  </thead>
+
+  <tbody id="cart-items"></tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="2"><strong>Total</strong></td>
+      <td id="total-price"><strong>€0</strong></td>
+      <td></td> <!-- empty cell under delete column -->
+    </tr>
+  </tfoot>
+</table>
+
+<div class="cart-buttons">
+  <button onclick="window.location.href='index.html'">Continue Shopping</button>
+  <button class="checkout">Ready for Payment</button>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function loadCart(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let table = document.getElementById("cart-items");
+  let total = 0;
+
+  table.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    table.innerHTML += `
+      <tr>
+        <td>${item.name}</td>
+        <td>${item.brand}</td>
+        <td>€${item.price}</td>
+        <td><button class="remove-btn" onclick="removeItem(${index})">❌</button></td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("total-price").innerText = "€" + total;
+}
+
+// Remove item
+function removeItem(index){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCart();
+}
+
+// Load cart on start
+loadCart();
+</script>
+
+</body>
+</html>

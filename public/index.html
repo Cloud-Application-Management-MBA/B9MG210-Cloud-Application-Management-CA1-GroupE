@@ -1,145 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Arnotts</title>
-
-<style>
-body { margin:0; font-family: Arial; background:#f5f5f5; }
-
-/* TOP STRIP */
-.top-strip {
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:8px;
-  font-size:13px;
-}
-
-/* HEADER */
-.header { background:white; padding:10px 40px; }
-
-.header-top {
-  display:flex;
-  justify-content:space-between;
-  font-size:13px;
-}
-
-.logo {
-  text-align:center;
-  font-size:32px;
-  letter-spacing:6px;
-  margin-top:10px;
-}
-
-/* SEARCH + ICONS */
-.search-box {
-  border:none;
-  border-bottom:1px solid #ccc;
-}
-
-.icon { margin-left:15px; cursor:pointer; }
-
-/* NAV */
-.nav {
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  padding:10px;
-  background:white;
-}
-
-.nav a {
-  cursor:pointer;
-  text-decoration:none;
-  color:black;
-  position:relative;
-  padding:5px 10px;
-  border-radius:5px;
-}
-
-.nav a:hover {
-  background:#f0f0f0;
-  color:#0e6f7d;
-}
-
-.nav a::after {
-  content:"";
-  position:absolute;
-  width:0%;
-  height:2px;
-  bottom:-5px;
-  left:0;
-  background:#0e6f7d;
-  transition:0.3s;
-}
-
-.nav a:hover::after {
-  width:100%;
-}
-
-/* HERO */
-.hero {
-  margin:20px;
-  height:300px;
-  background:linear-gradient(#d7a86e,#0e6f7d);
-  color:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-.shop-btn {
-  margin-top:20px;
-  background:black;
-  color:white;
-  padding:10px 25px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* PRODUCTS */
-.products { padding:20px; }
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.card {
-  background:white;
-  padding:10px;
-}
-
-.card img {
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.brand { font-weight:bold; }
-.name { color:#555; }
-
-.old {
-  text-decoration:line-through;
-  color:#999;
-}
-
-.new {
-  color:red;
-  font-weight:bold;
-}
-</style>
-
+  <title>Arnotts</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- TOP STRIP -->
 <div class="top-strip">
-Pay in 3 With Klarna(0% Apr)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Enjoy 3 Hours Car Parking for €9*&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Join Encore Loyalty Now & Unlock Exclusive Rewards
+  Pay in 3 With Klarna(0% Apr) &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;Enjoy 3 Hours Car Parking for €9*&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Join Encore Loyalty Now & Unlock Exclusive Rewards
 </div>
 
+<!-- HEADER -->
 <div class="header">
 
   <div class="header-top">
@@ -150,7 +23,7 @@ Pay in 3 With Klarna(0% Apr)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Enjoy 3 Hours C
     <div>
       <input class="search-box" placeholder="SEARCH">
       <span class="icon">♡</span>
-      <span class="icon">🛍️</span>
+      <a href="cart.html" class="cart-icon">🛒</a>
     </div>
   </div>
 
@@ -158,65 +31,87 @@ Pay in 3 With Klarna(0% Apr)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Enjoy 3 Hours C
 
 </div>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <div class="nav">
-  <a onclick="loadProducts()">Home</a>
-  <a onclick="loadProducts('men')">Men</a>
-  <a onclick="loadProducts('women')">Women</a>
-  <a onclick="loadProducts('beauty')">Beauty</a>
-  <a onclick="loadProducts('homeware')">Homeware</a>
+  <a href="index.html">Home</a>
+  <a href="category.html?cat=new">New Arrivals</a>
+  <a href="category.html?cat=men">Men</a>
+  <a href="category.html?cat=women">Women</a>
+  <a href="category.html?cat=beauty">Beauty</a>
+  <a href="category.html?cat=homeware">Homeware</a>
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
   <h2>SAVE ON HOME</h2>
   <h1>UP TO 50% OFF*</h1>
-  <div class="shop-btn" onclick="loadProducts('homeware')">Shop</div>
+  <a href="category.html?cat=homeware" class="btn">Shop</a>
+</section>
+
+<!-- COLLECTIONS -->
+<h2 class="section-title">SHOP THE COLLECTIONS</h2>
+
+<div class="collections">
+
+  <div class="collection-card">
+    <img src="https://arnottsstorage123.blob.core.windows.net/images/new%20in%20beauty.jpg">
+    <h3>New In Beauty</h3>
+    <p>Discover the latest and greatest arrivals to our Beauty Hall - from cult classics to your new favourite.</p>
+    <a href="category.html?cat=beauty">Shop The Collections</a>
+  </div>
+
+  <div class="collection-card">
+    <img src="https://arnottsstorage123.blob.core.windows.net/images/skincare.jpg">
+    <h3>Skincare</h3>
+    <p>Achieve that fresh-faced glow every day with our invigorating scrubs, moisturisers and more.</p>
+    <a href="category.html?cat=beauty">Shop The Collections</a>
+  </div>
+
+  <div class="collection-card">
+    <img src="https://arnottsstorage123.blob.core.windows.net/images/makeup.jpg">
+    <h3>Makeup</h3>
+    <p>From cult classics to the latest releases, shop the season’s top trends.</p>
+    <a href="category.html?cat=beauty">Shop The Collections</a>
+  </div>
+
 </div>
 
-<!-- PRODUCTS -->
-<div class="products">
-  <h2 id="title">All Products</h2>
-  <div id="products" class="grid"></div>
-</div>
+<!-- SERVICES -->
+<section class="services">
 
-<script>
-async function loadProducts(category = "") {
+  <div class="service-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+    <h3>Store Services</h3>
+    <p>Discover a shopping experience like no other: beauty appointments, expert advice and more.</p>
+    <button>Discover</button>
+  </div>
 
-  let url = "/api/products";
+  <div class="service-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+    <h3>Sign Up To Our Email</h3>
+    <p>Be the first to know about new arrivals, exclusive launches and sales.</p>
+    <button>Sign Up Here</button>
+  </div>
 
-  if(category){
-    url += "?category=" + category;
-    document.getElementById("title").innerText =
-      category.charAt(0).toUpperCase() + category.slice(1);
-  } else {
-    document.getElementById("title").innerText = "All Products";
-  }
+  <div class="service-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <h3>Earn & Spend Today</h3>
+    <p>Unlock perks and earn points with every purchase when you join loyalty.</p>
+    <button>Register</button>
+  </div>
 
-  const res = await fetch(url);
-  const data = await res.json();
+</section>
 
-  document.getElementById("products").innerHTML =
-    data.map(p => `
-      <div class="card">
-        <img src="${p.image}">
-        <div class="brand">${p.brand}</div>
-        <div class="name">${p.name}</div>
-
-        ${
-          p.oldPrice
-          ? `<div>
-              <span class="old">€${p.oldPrice}</span>
-              <span class="new"> €${p.price}</span>
-            </div>`
-          : `<div>€${p.price}</div>`
-        }
-      </div>
-    `).join('');
-}
-
-loadProducts();
-</script>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-row">
+    <span>THE STORE +</span>
+    <span>SHOPPING ONLINE +</span>
+    <span>CUSTOMER SERVICE +</span>
+    <span>SUSTAINABILITY +</span>
+    <span>ABOUT ARNOTTS +</span>
+  </div>
+</footer>
 
 </body>
 </html>

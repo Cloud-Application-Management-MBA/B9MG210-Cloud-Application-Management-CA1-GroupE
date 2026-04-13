@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="product"></div>
+
+<script src="script.js"></script>
+<script>
+const id = new URLSearchParams(window.location.search).get('id');
+
+fetch('/api/product/' + id)
+  .then(res => res.json())
+  .then(p => {
+    document.getElementById('product').innerHTML = `
+      <div class="product-detail">
+        <img src="${p.image}">
+        <div class="product-info">
+          <h2>${p.brand}</h2>
+          <h3>${p.name}</h3>
+          <p>${p.details || "Premium product with great quality."}</p>
+
+          <p>
+            ${p.oldPrice ? `<span class="old-price">€${p.oldPrice}</span>` : ''}
+            <strong>€${p.price}</strong>
+          </p>
+
+          <button onclick="addToCart(${p.id})">Add to Cart</button>
+          <br><br>
+          <button onclick="history.back()">⬅ Back</button>
+        </div>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>
