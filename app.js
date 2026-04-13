@@ -4,7 +4,6 @@ const express = require('express');
 const sql = require('mssql');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -194,6 +193,8 @@ app.post('/api/checkout', async (req, res) => {
 
 
 // ================= START SERVER =================
+const PORT = process.env.PORT || 8080;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
