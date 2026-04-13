@@ -12,9 +12,9 @@
   <thead>
     <tr>
       <th>Item</th>
-      <th>Brand</th>
+      <th>Qty</th>
       <th>Price</th>
-      <th></th> <!-- EMPTY HEADER (no "Action") -->
+      <th></th>
     </tr>
   </thead>
 
@@ -36,39 +36,47 @@
 
 <script src="script.js"></script>
 
+<script src="script.js"></script>
+
 <script>
 function loadCart(){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let table = document.getElementById("cart-items");
-  let total = 0;
+  fetch('/api/cart')
+    .then(res => res.json())
+    .then(data => {
 
-  table.innerHTML = "";
+      let table = document.getElementById("cart-items");
+      let total = 0;
 
-  cart.forEach((item, index) => {
-    total += item.price;
+      table.innerHTML = "";
 
-    table.innerHTML += `
-      <tr>
-        <td>${item.name}</td>
-        <td>${item.brand}</td>
-        <td>€${item.price}</td>
-        <td><button class="remove-btn" onclick="removeItem(${index})">❌</button></td>
-      </tr>
-    `;
-  });
+      data.forEach(item => {
+        total += item.price * item.quantity;
 
-  document.getElementById("total-price").innerText = "€" + total;
+        table.innerHTML += `
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.quantity}</td>
+            <td>€${item.price}</td>
+            <td>
+              <button class="remove-btn" onclick="removeItem(${item.id})">❌</button>
+            </td>
+          </tr>
+        `;
+      });
+
+      document.getElementById("total-price").innerText = "€" + total;
+    });
 }
 
-// Remove item
-function removeItem(index){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  loadCart();
+
+// REMOVE ITEM
+function removeItem(id){
+  fetch('/api/cart/' + id, { method: 'DELETE' })
+    .then(() => loadCart());
 }
 
-// Load cart on start
+
+// LOAD ON START
 loadCart();
 </script>
 

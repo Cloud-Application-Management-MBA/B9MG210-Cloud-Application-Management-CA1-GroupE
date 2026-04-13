@@ -3,36 +3,50 @@ function openProduct(id){
   window.location.href = "product.html?id=" + id;
 }
 
-// Add to cart
+
+// ================= ADD TO CART (DB) =================
 function addToCart(id){
-  fetch('/api/product/' + id)
+  fetch('/api/cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      productId: id,
+      quantity: 1
+    })
+  })
+  .then(() => {
+    alert("Added to cart!!");
+    updateCartCount();
+  });
+}
+
+
+// ================= CART COUNT =================
+function updateCartCount(){
+  fetch('/api/cart')
     .then(res => res.json())
-    .then(product => {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert("Added to cart");
-      updateCartCount();
+    .then(data => {
+      let el = document.getElementById("cart-count");
+      if(el) el.innerText = data.length;
     });
 }
 
-// Cart count
-function updateCartCount(){
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let el = document.getElementById("cart-count");
-  if(el) el.innerText = cart.length;
-}
 
-// LOAD EVENT
+// ================= LOAD EVENT =================
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
 });
 
-//CHECKOUT BUTTON 
+
+// ================= CHECKOUT =================
 document.addEventListener("click", function(e){
   if(e.target.classList.contains("checkout")){
-    alert("Demo Payment Successful ✅");
-    localStorage.removeItem("cart");
-    window.location.href = "index.html";
+    fetch('/api/checkout', { method: 'POST' })
+      .then(() => {
+        alert("Payment Successful!");
+        window.location.href = "index.html";
+      });
   }
 });
