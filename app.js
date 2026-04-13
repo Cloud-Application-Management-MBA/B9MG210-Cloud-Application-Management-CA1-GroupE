@@ -1,3 +1,4 @@
+console.log("NEW APP.JS WITH CART APIs LOADED");
 require('dotenv').config();
 const express = require('express');
 const sql = require('mssql');
