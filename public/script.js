@@ -4,7 +4,7 @@ function openProduct(id){
 }
 
 
-// ================= ADD TO CART (DB) =================
+// ================= ADD TO CART =================
 function addToCart(id){
   fetch('/api/cart', {
     method: 'POST',
@@ -34,19 +34,19 @@ function updateCartCount(){
 }
 
 
+// ================= CHECKOUT =================
+function checkout(){
+  fetch('/api/checkout', { method: 'POST' })
+    .then(res => res.text())
+    .then(msg => {
+      alert(msg);
+      window.location.href = "index.html";
+    })
+    .catch(err => alert("Checkout failed"));
+}
+
+
 // ================= LOAD EVENT =================
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
-});
-
-
-// ================= CHECKOUT =================
-document.addEventListener("click", function(e){
-  if(e.target.classList.contains("checkout")){
-    fetch('/api/checkout', { method: 'POST' })
-      .then(() => {
-        alert("Payment Successful!");
-        window.location.href = "index.html";
-      });
-  }
 });
