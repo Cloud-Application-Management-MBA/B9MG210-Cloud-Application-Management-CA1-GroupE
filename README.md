@@ -29,7 +29,7 @@ The aim is to improve scalability, modularity, reduce infrastructure management,
 * Azure CDN (Content Delivery - Optional)
 * Azure Front Door (Global Routing - Optional)
 
-##Strategy
+## Strategy
 
 We assume the existing system is hosted using salesforce Demandware (SaaS). The strategy is to retain the existing SaaS commerce engine while introducing a modern, flexible frontend layer using PaaS services.
 
