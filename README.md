@@ -2,22 +2,17 @@
 
 ## Overview
 
-This project demonstrates a modern retail website frontend hosted on Azure PaaS consuming data from a SaaS-like backend (simulated).
+Modernise Arnotts ecommerce platform using a hybrid PaaS + SaaS headless architecture to enable faster innovation, better performance and greater flexibility.
 
-The aim is to improve scalability, reduce infrastructure management, and optimise cost efficiency.
-
+The aim is to improve scalability, modularity, reduce infrastructure management, and optimise cost efficiency.
 
 ## Project Objectives
 
 * Analyse existing architecture
-* Design a cloud migration strategy
+* Design a cloud strategy
 * Implement a working cloud deployment
 * Compare SaaS vs PaaS models
 * Demonstrate containerised deployment
-
-## Proposed Architecture
-
-User → Azure Front Door → Azure CDN → Azure App Service (Docker Container) → Node.js Application → Azure Blob Storage → Azure Monitor
 
 ## Technologies Used
 
@@ -27,41 +22,53 @@ User → Azure Front Door → Azure CDN → Azure App Service (Docker Container)
 * GitHub (Version Control)
 * GitHub Container Registry (Image Hosting)
 * Azure Blob Storage (Static Content)
-* Azure Monitor (Logging & Monitoring)
+* Azure Monitor & App insights (Logging & Monitoring)
+* Azure SQL (only for this demo)
+* Azure Key vault (Optional)
+* Azure Entra ID (Optional))
 * Azure CDN (Content Delivery - Optional)
 * Azure Front Door (Global Routing - Optional)
 
-## Migration Strategy
+##Strategy
 
-We assume the existing system is hosted using Demandware (SaaS).
+We assume the existing system is hosted using salesforce Demandware (SaaS). The strategy is to retain the existing SaaS commerce engine while introducing a modern, flexible frontend layer using PaaS services.
 
 ### Current Challenges:
 
-* Manual scaling
-* High operational overhead
-* Infrastructure maintenance
-* Inefficient resource usage
+* Heavy dependency on Salesforce Commerce Cloud frontend limitations
+* Limited UI/UX innovation capability
+* Slow marketing and feature rollout cycles
+* Restricted performance optimisation control
+* Difficulty adopting modern headless architecture
 
 ### Proposed Solution:
 
-* Move to Azure PaaS (App Service)
-* Containerise application using Docker
-* Use managed services for storage and monitoring
+* Hybrid PaaS + SaaS headless architecture is implemented
+* Backend retained using Salesforce Commerce Cloud for core commerce functions
+* Frontend built on Microsoft Azure App Service for flexibility and control
+* Frontend and backend communicate via APIs (decoupled system)
+* Azure services improve performance, storage, and monitoring
+* Docker and CI/CD enable automated and consistent deployment
+* Result: scalable, modular, and cloud-native architecture
 
 ## Benefits of Proposed Solution
 
-* Reduced infrastructure management
-* Improved scalability and availability
-* Cost optimisation (no always-on VMs)
-* Faster deployment using containers
-* Built-in monitoring and logging
-* Better performance using CDN and Front Door
+* Improved website performance and responsiveness
+* Full control over frontend UI/UX design
+* Faster deployment of updates and campaigns
+* High scalability during peak traffic periods
+* Easy integration with AI and personalization tools
+* Reduced dependency on vendor constraints
 
 ## Limitations
 
-* Less control compared to IaaS
-* Dependency on Azure platform
-* Initial learning curve
+* Increased Architectural Complexity
+* Integration Overhead
+* Higher Development and Maintenance Effort
+* Dependency on Multiple Cloud Services
+* Cost Considerations
+* Performance Dependency on API Layer
+* Security Complexity
 
 
 ## Application Details
@@ -87,7 +94,7 @@ docker build -t arnotts-app .
 ### Run Container
 
 ```bash
-docker run -p 3000:3000 arnotts-app
+docker run -p 8080:8080 arnotts-app
 ```
 
 ## ☁️ Azure Deployment
@@ -116,8 +123,12 @@ arnotts-cloud-project/
 
 ## Conclusion
 
-This project demonstrates how a traditional IaaS-based application can be modernised using containerisation and PaaS services, resulting in improved efficiency, scalability, and cost-effectiveness.
-
+* Modernises Arnotts using hybrid cloud approach
+* Retains stable SaaS backend while improving frontend flexibility
+* Improves scalability, performance, and deployment speed
+* Reduces vendor frontend dependency
+* Enables future integration of AI and omnichannel features
+* Provides a future-ready headless commerce solution
 ---
 
 ## Notes
