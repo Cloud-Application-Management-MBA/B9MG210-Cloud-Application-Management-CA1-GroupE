@@ -118,6 +118,11 @@ arnotts-cloud-project/
 │
 └── public/
     └── index.html
+    └── cart.html
+    └── category.html
+    └── product.html
+    └── script.js
+    └── style.css
 
 ```
 
