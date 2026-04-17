@@ -1,4 +1,4 @@
-# Arnotts Cloud Migration Project (Group E)
+## Modernising Arnotts Digital Commerce Platform: A Hybrid PaaS + SaaS Architecture Strategy (Group E)
 
 ## Overview
 
