@@ -73,6 +73,12 @@ We assume the existing system is hosted using salesforce Demandware (SaaS). The 
 
 ## Application Details
 
+### Arnotts Website
+
+The below is the link to the website where the customers could browse and shop. 
+
+Website Link: https://arnotts-webapp-d5ejexd5fqcthveb.switzerlandnorth-01.azurewebsites.net/
+
 ### Backend
 
 * Node.js (Express)
